@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-label="Licensed Real Estate Registrar مسجل عقاري مرخص">
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b3a63"/>
+      <stop offset="1" stop-color="#1d4c7a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="260" fill="#ffffff"/>
+
+  <g transform="translate(20,20)">
+    <circle cx="100" cy="110" r="92" fill="url(#b)"/>
+    <circle cx="100" cy="110" r="76" fill="#fff" stroke="#b9966b" stroke-width="8"/>
+    <path d="M72 62h52l22 22v74" fill="none" stroke="#1d4c7a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M124 62v24h24" fill="none" stroke="#1d4c7a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M70 168c18-22 34-20 48-6 7 8 13 9 22 4" fill="none" stroke="#b9966b" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(250,36)" fill="#173f6c" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <text x="0" y="62" font-size="72">Licensed</text>
+    <text x="0" y="126" font-size="72">Real Estate</text>
+    <text x="0" y="190" font-size="72">Registrar</text>
+  </g>
+
+  <g transform="translate(900,28)" fill="#173f6c" font-family="Cairo, Tahoma, Arial, sans-serif" font-weight="700">
+    <text x="0" y="62" font-size="84">مسجل</text>
+    <text x="0" y="134" font-size="84">عقاري</text>
+    <text x="0" y="206" font-size="84">مرخص</text>
+  </g>
+</svg>

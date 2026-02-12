@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>المسجل العقاري المعتمد</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0b3a63;
+      --primary-deep: #072b48;
+      --accent: #b9966b;
+      --bg: #f5f8fc;
+      --text: #1f2937;
+      --white: #fff;
+      --radius: 16px;
+      --shadow: 0 12px 26px rgba(11, 58, 99, 0.11);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Cairo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .container { width: min(1120px, 92%); margin-inline: auto; }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #fff;
+      border-bottom: 1px solid #dde6f1;
+      backdrop-filter: blur(6px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+
+    .brand img {
+      width: 360px;
+      max-width: 72vw;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary-deep);
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary-deep), var(--primary));
+      color: #fff;
+      padding: 4.5rem 0 4rem;
+    }
+    .hero h1 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(1.6rem, 4vw, 2.7rem);
+      line-height: 1.45;
+    }
+    .hero p { margin: 0 0 1.4rem; max-width: 760px; font-size: 1.05rem; }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.8rem 1.45rem;
+      font-family: inherit;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      transition: transform .2s ease, background .2s ease;
+      cursor: pointer;
+    }
+    .btn-gold {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(185, 150, 107, 0.35);
+    }
+    .btn-gold:hover { background: #c6a983; transform: translateY(-1px); }
+
+    section { padding: 3.5rem 0; }
+    .section-title { color: var(--primary-deep); margin: 0 0 .4rem; font-size: clamp(1.3rem, 3vw, 1.95rem); }
+    .section-desc { margin: 0 0 1.4rem; color: #4b5563; }
+
+    .grid { display: grid; gap: 1rem; }
+    .services-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .rights-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .faq-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+    .card, .service-detail, .right-card, .faq-item {
+      background: #fff;
+      border: 1px solid rgba(11, 58, 99, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .card { padding: 1.2rem; }
+    .card h3 { margin: 0 0 .4rem; color: var(--primary-deep); }
+    .card p { margin: 0 0 1rem; color: #334155; }
+
+    .icon-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-bottom: .7rem;
+      box-shadow: 0 0 0 6px rgba(185, 150, 107, 0.18);
+    }
+
+    .details { background: #fff; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; }
+    .service-detail { padding: 1.35rem; }
+    .service-detail h3 { margin: 0 0 .6rem; color: var(--primary-deep); }
+
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: .8rem;
+    }
+
+    ul { margin: 0; padding-right: 1.15rem; }
+
+    .right-card { padding: .95rem; }
+    .right-card h4 { margin: 0 0 .35rem; color: var(--primary-deep); }
+    .right-card p { margin: 0 0 .55rem; font-size: .95rem; }
+
+    .faq-item {
+      border-right: 4px solid var(--accent);
+      padding: 1rem;
+      box-shadow: 0 8px 18px rgba(11, 58, 99, 0.08);
+    }
+    .faq-item h4 { margin: 0 0 .35rem; color: var(--primary-deep); }
+    .faq-item p { margin: 0; }
+
+    .contact-cta {
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .contact-box {
+      background: #fff;
+      border: 1px solid rgba(11, 58, 99, 0.1);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 1.2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .whatsapp-btn {
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: .68rem 1.1rem;
+      font-weight: 800;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      font-size: .92rem;
+      padding: 1.3rem 1rem 2.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav-inner { flex-direction: column; align-items: flex-start; }
+      .brand img { width: 280px; }
+      .nav-links { width: 100%; }
+    }
+
+    @media (max-width: 640px) {
+      body { line-height: 1.75; }
+      .hero { padding: 3.6rem 0 3.3rem; }
+      .hero p { font-size: .98rem; }
+      .card, .service-detail, .right-card, .faq-item { border-radius: 14px; }
+      .btn { width: 100%; }
+      .card .btn { width: auto; }
+      .contact-box { flex-direction: column; align-items: stretch; }
+      .whatsapp-btn { justify-content: center; width: 100%; }
+      .services-grid, .rights-grid, .faq-grid, .cols { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand" aria-label="LRE logo">
+        <img src="logo-lre.svg" alt="LRE السجل العقاري" />
+      </a>
+      <nav class="nav-links">
+        <a href="#services">الخدمات</a>
+        <a href="#first-registration">التسجيل العيني الأول</a>
+        <a href="#ownership-transfer">نقل الملكية</a>
+        <a href="#rights-management">إدارة الحقوق</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>خدمات التسجيل العقاري المعتمدة</h1>
+      <p>تنفيذ التسجيل العيني الأول، ونقل الملكية، وإدارة الحقوق والقيود والالتزامات باحترافية وسرعة وفق الأنظمة المعتمدة في المملكة.</p>
+      <a class="btn btn-gold" href="https://wa.me/966552404104?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%0A%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D8%A7%D9%84%D8%B9%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D8%A3%D9%88%D9%84" target="_blank" rel="noopener">اطلب الخدمة الآن</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">الخدمات الرئيسية</h2>
+      <p class="section-desc">خدمات رسمية واضحة مع متطلبات كل خدمة وآلية البدء عبر واتساب.</p>
+      <div class="grid services-grid">
+        <article class="card">
+          <div class="icon-dot" aria-hidden="true"></div>
+          <h3>التسجيل العيني الأول</h3>
+          <p>إجراء قانوني لتسجيل العقار في السجل العقاري ومنح الملكية حجية قانونية مطلقة.</p>
+          <a class="btn btn-gold" href="#first-registration">عرض التفاصيل</a>
+        </article>
+        <article class="card">
+          <div class="icon-dot" aria-hidden="true"></div>
+          <h3>نقل الملكية</h3>
+          <p>تنفيذ إجراءات نقل ملكية العقار (بيع أو هبة) وفق الأنظمة المعتمدة.</p>
+          <a class="btn btn-gold" href="#ownership-transfer">عرض التفاصيل</a>
+        </article>
+        <article class="card">
+          <div class="icon-dot" aria-hidden="true"></div>
+          <h3>إدارة الحقوق والقيود والالتزامات</h3>
+          <p>إضافة أو إزالة الحقوق العقارية المختلفة مثل الرهن وحق الانتفاع وغيرها.</p>
+          <a class="btn btn-gold" href="#rights-management">عرض التفاصيل</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="details" id="first-registration">
+    <div class="container">
+      <article class="service-detail">
+        <h2 class="section-title">التسجيل العيني الأول</h2>
+        <p>التسجيل العيني هو إجراء قانوني لتسجيل العقارات في السجل العقاري، ويشمل العقارات من أنواع مختلفة مثل الأراضي الخام، الأراضي ضمن مخطط معتمد، والوحدات داخل عقار مشترك. يهدف التسجيل إلى تأكيد ملكية العقار ومنحها حجية قانونية مطلقة، ويتيح متابعة جميع التصرفات العقارية لاحقًا مثل نقل الملكية، الفرز، الدمج، وإدارة الحقوق والقيود والالتزامات.</p>
+        <div class="cols">
+          <div>
+            <h3>المتطلبات الأساسية</h3>
+            <ul>
+              <li>أن يكون العقار ضمن منطقة يمكن الإعلان عنها من قبل السجل العقاري.</li>
+              <li>وجود سجل تجاري ساري للمنشآت عند التقديم بصفتها الاعتبارية.</li>
+              <li>وكالة شرعية سارية إذا كان مقدم الطلب وكيلاً عن المالك.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>الفوائد</h3>
+            <ul>
+              <li>تعزيز الشفافية والثقة في السوق العقاري.</li>
+              <li>تسهيل إجراءات التصرفات العقارية بشكل سريع وموثوق.</li>
+              <li>منح الملاك حجية قانونية كاملة للعقارات المسجلة.</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:1rem"><a class="btn btn-gold" href="https://wa.me/966552404104?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%0A%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D8%A7%D9%84%D8%B9%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D8%A3%D9%88%D9%84" target="_blank" rel="noopener">ابدأ الخدمة عبر واتساب</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="ownership-transfer">
+    <div class="container">
+      <article class="service-detail">
+        <h2 class="section-title">نقل ملكية العقار (بيع / هبة)</h2>
+        <p>تنفيذ إجراءات نقل الملكية بين الأطراف سواء كانت بيعاً أو هبة، مع استكمال جميع المتطلبات النظامية وإصدار سجل محدث باسم المالك الجديد بعد اعتماد الطلب وسداد الرسوم.</p>
+        <div class="cols">
+          <div>
+            <h3>المتطلبات</h3>
+            <ul>
+              <li>رقم العقار</li>
+              <li>هوية البائع</li>
+              <li>هوية المشتري</li>
+              <li>تحديد نسبة الملكية المراد نقلها</li>
+              <li>طريقة الدفع (شيك / حوالة مصرفية / مقايضة)</li>
+              <li>رقم ضريبة التصرفات العقارية</li>
+              <li>الوكالة الشرعية (إن وجدت)</li>
+              <li>مستندات داعمة عند الحاجة</li>
+            </ul>
+          </div>
+          <div>
+            <h3>الحالات التي لا يمكن تنفيذها</h3>
+            <ul>
+              <li>إذا كان أحد الأطراف قاصر</li>
+              <li>إذا كان العقار موقوف</li>
+              <li>إذا كانت الهوية منتهية</li>
+              <li>إذا كانت العملية بأمر قضائي</li>
+              <li>إذا كان أحد الأطراف جهة حكومية</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:1rem"><a class="btn btn-gold" href="https://wa.me/966552404104?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%0A%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AE%D8%AF%D9%85%D8%A9%20%D9%86%D9%82%D9%84%20%D8%A7%D9%84%D9%85%D9%84%D9%83%D9%8A%D8%A9" target="_blank" rel="noopener">ابدأ الخدمة عبر واتساب</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="details" id="rights-management">
+    <div class="container">
+      <article class="service-detail">
+        <h2 class="section-title">إضافة أو إزالة الحقوق والقيود العقارية</h2>
+        <p>تنفيذ طلبات إضافة أو إزالة الحقوق العقارية المختلفة المرتبطة بالعقار، وفق الأنظمة المعتمدة.</p>
+        <h3>الحقوق المتاحة</h3>
+        <div class="grid rights-grid">
+          <article class="right-card"><div class="icon-dot" aria-hidden="true"></div><h4>الرهن</h4><p>إثبات حق مالي لصالح جهة أو فرد مقابل التزام مالي على العقار.</p><ul><li>رقم العقار</li><li>بيانات صاحب الحق</li><li>مبلغ الرهن</li><li>رقم السند وتاريخه + مستندات داعمة</li></ul></article>
+          <article class="right-card"><div class="icon-dot" aria-hidden="true"></div><h4>حق الانتفاع</h4><p>منح شخص حق الانتفاع بالعقار دون نقل ملكيته.</p><ul><li>رقم العقار</li><li>بيانات المنتفع</li><li>مدة الانتفاع</li><li>مستند رسمي مثبت للحق</li></ul></article>
+          <article class="right-card"><div class="icon-dot" aria-hidden="true"></div><h4>حق الارتفاق</h4><p>منح حق استخدام جزء من العقار لخدمة عقار آخر.</p><ul><li>رقم العقار</li><li>تحديد نوع الارتفاق</li><li>بيانات الأطراف</li><li>مستندات داعمة</li></ul></article>
+          <article class="right-card"><div class="icon-dot" aria-hidden="true"></div><h4>حق السكنى</h4><p>منح شخص حق السكن في العقار دون تملك.</p><ul><li>رقم العقار</li><li>بيانات المستفيد</li><li>مدة السكن</li><li>مستند داعم</li></ul></article>
+          <article class="right-card"><div class="icon-dot" aria-hidden="true"></div><h4>حق الاستعمال</h4><p>منح شخص حق استخدام العقار لغرض محدد دون نقل الملكية.</p><ul><li>رقم العقار</li><li>بيانات المستفيد</li><li>تحديد نطاق الاستخدام</li><li>مستند داعم</li></ul></article>
+          <article class="right-card"><div class="icon-dot" aria-hidden="true"></div><h4>حق الشفعة</h4><p>حق الشريك في تملك الحصة المباعة قبل انتقالها لطرف خارجي.</p><ul><li>رقم العقار</li><li>بيانات الشريك</li><li>إثبات صفة الشراكة</li></ul></article>
+          <article class="right-card"><div class="icon-dot" aria-hidden="true"></div><h4>الإيجار</h4><p>تسجيل أو تعديل أو إزالة حق الإيجار المرتبط بالعقار.</p><ul><li>رقم العقار</li><li>بيانات المؤجر والمستأجر</li><li>نسخة من عقد الإيجار</li></ul></article>
+        </div>
+        <p style="margin-top:1rem"><a class="btn btn-gold" href="https://wa.me/966552404104?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%0A%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AD%D9%82%D9%88%D9%82%20%D9%88%D8%A7%D9%84%D9%82%D9%8A%D9%88%D8%AF" target="_blank" rel="noopener">ابدأ الخدمة عبر واتساب</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">الأسئلة الشائعة</h2>
+      <div class="grid faq-grid">
+        <article class="faq-item"><h4>كم تستغرق مدة تنفيذ الخدمة؟</h4><p>فوري بعد اكتمال المتطلبات واعتماد الطلب.</p></article>
+        <article class="faq-item"><h4>هل يلزم حضور جميع الأطراف؟</h4><p>نعم، يلزم حضور جميع الأطراف أو من ينوب عنهم بشكل نظامي.</p></article>
+        <article class="faq-item"><h4>هل يمكن التنفيذ بوكالة؟</h4><p>نعم، يمكن التنفيذ بوكالة شرعية سارية ومطابقة للإجراء.</p></article>
+        <article class="faq-item"><h4>ما هي طرق الدفع المتاحة؟</h4><p>حوالة مصرفية.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-cta" id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <h2 class="section-title" style="margin:0">تواصل معنا</h2>
+          <p class="section-desc" style="margin:0">للاستفسار أو بدء الخدمة مباشرة عبر واتساب.</p>
+        </div>
+        <a class="whatsapp-btn" href="https://wa.me/966552404104?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85" target="_blank" rel="noopener" aria-label="WhatsApp">تواصل عبر واتساب</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>جميع الحقوق محفوظة © المسجل العقاري المعتمد</footer>
+</body>
+</html>
